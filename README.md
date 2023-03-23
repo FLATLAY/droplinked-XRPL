@@ -26,7 +26,7 @@ Here We'll discuss entities used:
 
 Here we explain each method within the contract and how they are used ( some of the methods functionalies will be updated and other methods will be added ):
 
-1. [**Mint**]() : gets (`client`, `wallet`, `tokenURI`) and mints the token to `caller`'s account.
+1. [**Mint**](https://github.com/FLATLAY/droplinked-ripple/blob/main/src/droplinked.js) : gets (`client`, `wallet`, `tokenURI`) and mints the token to `caller`'s account.
 
 # Project Feautures
 
