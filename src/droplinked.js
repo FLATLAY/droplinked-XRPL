@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import { createAccount, getWalletFromSeed } from './accounts.js';
 import { NETWORK } from './constants/network.constant.js';
 import { storeMetadata } from './utilities/ipfs-metadata.js';
-import { NFTMetadata } from './Entities/nft-metadata.entity.js';
+import { NFTMetadata } from './entities/nft-metadata.entity.js';
 
 dotenv.config({ path: '../.env' });
 
