@@ -1,4 +1,4 @@
-export class NFTMetadat {
+export class NFTMetadata {
   constructor(name, description, image, attributes, properties, localization) {
     this.name = name;
     this.description = description;
