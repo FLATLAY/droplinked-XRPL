@@ -24,7 +24,7 @@ Here We'll discuss entities used:
 
 ## Methods
 
-Here we explain each method within the contract and how they are used:
+Here we explain each method within the contract and how they are used ( some of the methods functionalies will be updated and other methods will be added ):
 
 1. [**Mint**]() : gets (`client`, `wallet`, `tokenURI`) and mints the token to `caller`'s account.
 
