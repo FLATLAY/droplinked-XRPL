@@ -1,3 +1,3 @@
 export const URLS = {
-  DEFAULT_FAUCET_HOST: 'faucet-nft.ripple.com',
+  DEFAULT_FAUCET_HOST: null, // 'faucet-nft.ripple.com'
 };
