@@ -4,5 +4,6 @@ import { XRPLService } from './xrpl.service';
 
 @Module({
   providers: [XRPLService, XRPLHelper],
+  exports: [XRPLService],
 })
 export class XRPLModule {}
