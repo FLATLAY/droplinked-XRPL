@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { XRPLHelper } from './helpers/xrpl.helper';
-import { XRPLService } from './xrpl.service';
+import { XRPLWalletsService } from './services/xrpl-wallets.service';
 
 @Module({
-  providers: [XRPLService, XRPLHelper],
-  exports: [XRPLService],
+  providers: [XRPLWalletsService, XRPLHelper],
+  exports: [XRPLWalletsService],
 })
 export class XRPLModule {}
