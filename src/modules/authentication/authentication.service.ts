@@ -3,9 +3,9 @@ import { JwtService } from '@nestjs/jwt/dist';
 import { UserDocument } from 'src/modules/users/models/user.model';
 import { UsersService } from 'src/modules/users/users.service';
 import { XRPLWalletsService } from 'src/modules/xrpl/services/xrpl-wallets.service';
-import { Wallet } from 'xrpl';
 import { SigninDTO } from './dtos/signin.dto';
 import { SignupDTO } from './dtos/signup.dto';
+import * as xrpl from 'xrpl';
 
 @Injectable()
 export class AuthenticationService {
@@ -16,7 +16,7 @@ export class AuthenticationService {
   ) {}
 
   async signup(data: SignupDTO) {
-    let wallet: Wallet;
+    let wallet: xrpl.Wallet;
 
     if (data.xrplWalletSeed) {
       wallet = this.xrplWalletsService.getWalletFromSeed(data.xrplWalletSeed);
