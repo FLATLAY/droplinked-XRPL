@@ -1,6 +1,6 @@
 import { BadRequestException } from '@nestjs/common/exceptions';
-import * as Joi from 'joi';
 import { isValidClassicAddress } from 'xrpl';
+import * as Joi from 'joi';
 
 export class SigninDTO {
   xrplClassicAddress: string;
