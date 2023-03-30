@@ -14,7 +14,7 @@ export type UserDocument = HydratedDocument<User>;
 })
 export class User {
   @Prop({ type: mongoose.Schema.Types.String, required: true, unique: true })
-  xrplAccountSeed: string;
+  xrplWalletSeed: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
