@@ -7,6 +7,7 @@ export type UserDocument = HydratedDocument<User>;
   toJSON: {
     transform: (_doc: UserDocument, ret: UserDocument) => {
       ret.id = ret._id;
+      delete ret.xrplWalletSeed;
       delete ret._id;
       delete ret.__v;
     },
@@ -15,6 +16,9 @@ export type UserDocument = HydratedDocument<User>;
 export class User {
   @Prop({ type: mongoose.Schema.Types.String, required: true, unique: true })
   xrplWalletSeed: string;
+
+  @Prop({ type: mongoose.Schema.Types.String, required: true, unique: true })
+  xrplClassicAddress: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
