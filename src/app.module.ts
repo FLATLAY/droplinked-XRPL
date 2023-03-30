@@ -6,6 +6,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigService } from '@nestjs/config/dist';
+import { XRPLModule } from './modules/xrpl/xrpl.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { ConfigService } from '@nestjs/config/dist';
     }),
     AuthenticationModule,
     UsersModule,
+    XRPLModule,
   ],
   controllers: [AppController],
   providers: [AppService],
