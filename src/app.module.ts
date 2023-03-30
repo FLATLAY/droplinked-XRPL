@@ -7,6 +7,7 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigService } from '@nestjs/config/dist';
 import { XRPLModule } from './modules/xrpl/xrpl.module';
+import { IpfsModule } from './modules/ipfs/ipfs.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { XRPLModule } from './modules/xrpl/xrpl.module';
     AuthenticationModule,
     UsersModule,
     XRPLModule,
+    IpfsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
