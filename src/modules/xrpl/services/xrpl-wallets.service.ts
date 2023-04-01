@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { XRPLHelper } from '../helpers/xrpl.helper';
-import { URLS } from 'src/constants/urls.constant';
+import { URLS } from '../constants/urls.constant';
 import * as xrpl from 'xrpl';
 
 @Injectable()
