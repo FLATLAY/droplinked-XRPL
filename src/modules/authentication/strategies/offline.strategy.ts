@@ -3,11 +3,13 @@ import { Strategy } from 'passport-custom';
 import { PassportStrategy } from '@nestjs/passport';
 import { ConfigService } from '@nestjs/config';
 import { UsersService } from 'src/modules/users/users.service';
-import { isValidClassicAddress, isValidSecret } from 'xrpl';
+import { isValidSecret } from 'xrpl';
+import { AuthenticationService } from '../authentication.service';
 
 @Injectable()
 export class OfflineStrategy extends PassportStrategy(Strategy, 'offline') {
   constructor(
+    private readonly authenticationService: AuthenticationService,
     private readonly configService: ConfigService,
     private readonly usersService: UsersService,
   ) {
@@ -16,14 +18,8 @@ export class OfflineStrategy extends PassportStrategy(Strategy, 'offline') {
 
   async validate() {
     const xrplWalletSeed = this.configService.get<string>('XRPL_WALLET_SEED');
-    const xrplClassicAddress = this.configService.get<string>(
-      'XRPL_CLASSIC_ADDRESS',
-    );
 
-    if (
-      !isValidSecret(xrplWalletSeed) ||
-      !isValidClassicAddress(xrplClassicAddress)
-    )
+    if (!isValidSecret(xrplWalletSeed))
       throw new HttpException(
         {
           statusCode: HttpStatus.UNAUTHORIZED,
@@ -33,20 +29,12 @@ export class OfflineStrategy extends PassportStrategy(Strategy, 'offline') {
         HttpStatus.UNAUTHORIZED,
       );
 
-    const user = await this.usersService.getUser({
+    let user = await this.usersService.getUser({
       xrplWalletSeed,
-      xrplClassicAddress,
     });
 
     if (!user)
-      throw new HttpException(
-        {
-          statusCode: HttpStatus.UNAUTHORIZED,
-          status: 'failed',
-          data: { message: 'user could not be found .' },
-        },
-        HttpStatus.UNAUTHORIZED,
-      );
+      user = await this.authenticationService.signup({ xrplWalletSeed });
 
     return user;
   }
