@@ -8,6 +8,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigService } from '@nestjs/config/dist';
 import { XRPLModule } from './modules/xrpl/xrpl.module';
 import { IPFSModule } from './modules/ipfs/ipfs.module';
+import { DroplinkedModule } from './modules/droplinked/droplinked.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { IPFSModule } from './modules/ipfs/ipfs.module';
     UsersModule,
     XRPLModule,
     IPFSModule,
+    DroplinkedModule,
   ],
   controllers: [AppController],
   providers: [AppService],
