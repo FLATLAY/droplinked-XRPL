@@ -1,10 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { HydratedDocument } from 'mongoose';
 
-export type PropertyDocument = HydratedDocument<Property>;
+export type PropertiesDocument = HydratedDocument<Properties>;
 
 @Schema()
-export class Property {
+export class Properties {
   @Prop({ type: mongoose.Schema.Types.Number })
   totalSupply: number;
 
@@ -15,4 +15,4 @@ export class Property {
   price: number;
 }
 
-export const PropertySchema = SchemaFactory.createForClass(Property);
+export const PropertiesSchema = SchemaFactory.createForClass(Properties);
