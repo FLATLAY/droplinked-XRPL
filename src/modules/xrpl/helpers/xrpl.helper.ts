@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common/decorators';
 import { ConfigService } from '@nestjs/config';
-import { ENVIRONMENTS } from 'src/constants/environments.constant';
-import { NETWORKS } from 'src/constants/networks.constant';
+import { NETWORKS } from 'src/modules/xrpl/constants/networks.constant';
+import { ENVIRONMENT } from '../enums/environment.enum';
 
 @Injectable()
 export class XRPLHelper {
@@ -9,12 +9,12 @@ export class XRPLHelper {
 
   getNetwork() {
     switch (this.configService.get<string>('ENVIRONMENT')) {
-      case ENVIRONMENTS.Type.MAIN:
-        return NETWORKS.MAIN;
-      case ENVIRONMENTS.Type.TEST:
+      case ENVIRONMENT.DEVELOPMENT:
+        return NETWORKS.DEVELOPMENT;
+      case ENVIRONMENT.PRODUCTION:
+        return NETWORKS.PRODUCTION;
+      case ENVIRONMENT.TEST:
         return NETWORKS.TEST;
-      case ENVIRONMENTS.Type.DEV:
-        return NETWORKS.DEV;
       default:
         return 'NONE';
     }
