@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { HydratedDocument } from 'mongoose';
 import { AttributeDocument, AttributeSchema } from './attribute.model';
-import { PropertyDocument, PropertySchema } from './property.model';
+import { PropertiesDocument, PropertiesSchema } from './properties.model';
 import { LocalizationDocument, LocalizationSchema } from './localization.model';
 
 export type NFTMetadataDocument = HydratedDocument<NFTMetadata>;
@@ -23,8 +23,8 @@ export class NFTMetadata {
   @Prop({ type: AttributeSchema })
   attributes: AttributeDocument[];
 
-  @Prop({ type: PropertySchema })
-  properties: PropertyDocument[];
+  @Prop({ type: PropertiesSchema })
+  properties: PropertiesDocument;
 
   @Prop({ type: LocalizationSchema })
   localization: LocalizationDocument;
