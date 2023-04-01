@@ -6,6 +6,7 @@ import { XRPLModule } from 'src/modules/xrpl/xrpl.module';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtStrategy } from './strategies/jwt.strategy';
+import { OfflineStrategy } from './strategies/offline.strategy';
 
 @Module({
   imports: [
@@ -20,7 +21,7 @@ import { JwtStrategy } from './strategies/jwt.strategy';
     UsersModule,
     XRPLModule,
   ],
-  providers: [AuthenticationService, JwtStrategy],
+  providers: [AuthenticationService, JwtStrategy, OfflineStrategy],
   controllers: [AuthenticationController],
 })
 export class AuthenticationModule {}
