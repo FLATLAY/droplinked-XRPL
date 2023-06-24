@@ -1,4 +1,4 @@
-# Droplinked-XRPL
+# droplinked-XRPL
 
 ## Introduction
 
